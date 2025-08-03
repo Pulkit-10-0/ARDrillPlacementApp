@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace "com.google.ar.core.examples.java.helloar"
+    compileSdkVersion 36
+
+    defaultConfig {
+        applicationId "com.google.ar.core.examples.java.helloar"
+        minSdkVersion 24
+        targetSdkVersion 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    // ARCore (Google Play Services for AR)
+    implementation 'com.google.ar:core:1.50.0'
+
+    // Wavefront OBJ model loader
+    implementation 'de.javagl:obj:0.4.0'
+
+    // UI Libraries (classic, not Compose)
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+}
